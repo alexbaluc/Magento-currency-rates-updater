@@ -27,4 +27,3 @@ foreach($rates[$baseCurrencyCode] as $CurrencyCode => $value  ) {
     $currencies = array($baseCurrencyCode => array($CurrencyCode => $res_cur[$baseCurrencyCode][$CurrencyCode]) );
     Mage::getModel('directory/currency')->saveRates($currencies); 
 }
-?>
