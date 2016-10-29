@@ -10,7 +10,7 @@ $res_cur = '';
 foreach($currencies as $toCode) {
 	$url = 'http://www.google.com/finance/converter?a=1&from=_CODE_FROM_&to=_CODE_TO_';
 	$url = str_replace('_CODE_FROM_', $baseCurrencyCode, $url);
-    $url = str_replace('_CODE_TO_', $toCode, $url);	
+    	$url = str_replace('_CODE_TO_', $toCode, $url);	
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -24,6 +24,6 @@ foreach($currencies as $toCode) {
 }
 $res_cur[$baseCurrencyCode][$baseCurrencyCode] = '1.0000';
 foreach($rates[$baseCurrencyCode] as $CurrencyCode => $value  ) {
-    $currencies = array($baseCurrencyCode => array($CurrencyCode => $res_cur[$baseCurrencyCode][$CurrencyCode]) );
-    Mage::getModel('directory/currency')->saveRates($currencies); 
+	$currencies = array($baseCurrencyCode => array($CurrencyCode => $res_cur[$baseCurrencyCode][$CurrencyCode]) );
+	Mage::getModel('directory/currency')->saveRates($currencies); 
 }
